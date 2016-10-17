@@ -12,6 +12,7 @@ if [ "$LOGIN_USER" != "" -a "$LOGIN_PASS" != "" ]; then
   adduser --disabled-password --gecos "" $LOGIN_USER
   gpasswd -a $LOGIN_USER sudo
   echo "$LOGIN_USER:$LOGIN_PASS" | chpasswd
+  echo "root:$LOGIN_PASS" | chpasswd
 fi
 
 /usr/sbin/sshd -D
